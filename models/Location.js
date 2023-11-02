@@ -13,7 +13,7 @@ Location.init(
             autoIncrement: true,
             allowNull: false
         },
-        name: {
+        location_name: {
             type: DataTypes.STRING,
             allowNull: false
         }

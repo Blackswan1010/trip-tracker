@@ -13,7 +13,7 @@ Trip.init(
             allowNull: false
         },
         trip_budget: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 isDecimal: true
@@ -31,14 +31,16 @@ Trip.init(
             references: {
                 model: "traveller",
                 key: "id"
-            }
+            },
+            unique: false,
         },
         location_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: "location",
                 key: "id"
-            }
+            },
+            unique: false,
         }
     },
     {

@@ -12,3 +12,9 @@ Location.belongsToMany(Traveller, {
     onDelete: 'CASCADE'
 });
 
+
+module.exports = {
+    Location,
+    Traveller,
+    Trip
+}
