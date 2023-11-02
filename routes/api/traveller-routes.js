@@ -41,4 +41,21 @@ router.post("/", async (req, res) => {
 });
 
 
+router.delete("/:id", async (req, res) => {
+    try {
+        const data = await Traveller.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        if (data) {
+            res.status(200).json({ "message": "Deleted traveller"});
+        } else {
+            res.status(404).json({ "message": "Couldn't delete traveller"});
+        }
+    } catch (error) {
+        res.status(500).json(error);
+    }
+})
+
 module.exports = router;
