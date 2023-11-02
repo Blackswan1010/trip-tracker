@@ -15,5 +15,20 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/:id", async (req, res) => {
+    try {
+        const data = await Traveller.findByPk(req.params.id, {
+            include: [{ model: Location }]
+        });
+        if (data) {
+            res.status(200).json(data);
+        } else {
+            res.status(404).json({ "message": "Couldn't get traveller data"});
+        }
+    } catch (error) {
+        res.status(500).json(error);
+    }
+})
+
 
 module.exports = router;
